@@ -1,3 +1,9 @@
+let lowerCaseLetter = /[a-z]/g;
+let upperCaseLetter = /[A-Z]/g;
+let numbers = /[0-9]/g;
+
+
+
 const controller = {}
 
 controller.register = (data) => {
@@ -41,21 +47,39 @@ controller.register = (data) => {
     document.getElementById("confirm-password-error").innerText = "";
   }
 
-
-
   ///// Xử lý confirmPassword
   data.password != data.confirmPassword ?
     document.getElementById("confirm-password-error").innerText = "Confirm Password is erorr" :
     document.getElementById("confirm-password-error").innerText = "";
 
 
-  // Tạo user
-  if (data.firstName !== "" && data.lastName !== "" &&
-    data.email !== "" &&
-    data.password !== "" &&
-    data.confirmPassword !== "" &&
-    data.password === data.confirmPassword) {
-    model.register(data); /// xử lý tạo tài khoản trên server với hàm này.
+  ////// Xử lý Password
+  if (data.password.length < 6) {
+    document.getElementById("password-error").innerText = "*Your password must be at least 6 characters";
   }
+  else if (!data.password.match(lowerCaseLetter)) {
+    document.getElementById("password-error").innerText = "*Your password must contain a lowerCaseLetter";
+  }
+  else if (!data.password.match(upperCaseLetter)) {
+    document.getElementById("password-error").innerText = "*Your password must contain a upperCaseLetter";
+  }
+  else if (!data.password.match(numbers)) {
+    document.getElementById("password-error").innerText = "*Your password must number or special character";
+  }
+  else {
+    // Tạo user
+    if (data.firstName !== "" && data.lastName !== "" &&
+      data.email !== "" &&
+      data.password !== "" &&
+      data.confirmPassword !== "" &&
+      data.password === data.confirmPassword) {
+      model.register(data); /// xử lý tạo tài khoản trên server với hàm này.
+    }
+  }
+
+
+
+
+
 
 }

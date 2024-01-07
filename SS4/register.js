@@ -1,4 +1,10 @@
+// Lấy ra thẻ form
 const registerForm = document.getElementById("register-form");
+
+/*
+Các sự kiện có thể lắng nghe được trong form: click, submit, change, 
+*/
+
 
 // bắt sự kiện submit
 registerForm.addEventListener("submit", (event) => {
