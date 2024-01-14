@@ -73,13 +73,8 @@ controller.register = (data) => {
       data.password !== "" &&
       data.confirmPassword !== "" &&
       data.password === data.confirmPassword) {
-      model.register(data); /// xử lý tạo tài khoản trên server với hàm này.
+      return data; // Trả về data sạch
     }
   }
-
-
-
-
-
 
 }
