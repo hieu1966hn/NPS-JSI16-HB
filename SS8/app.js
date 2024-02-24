@@ -91,8 +91,9 @@ getTasks();
 
 
 /*
+Nộp lại: Trước ngày 04/02
 1. Khi nhập vào task, thêm deadline (thời hạn) cho công việc
 - Cho phép người dùng đặt một thời hạn cho task
-- Hiển thị thời giạn trên giao diện người dùng
+- Hiển thị thời gian trên giao diện người dùng
 - Sắp xếp công việc theo thời hạn.
 */
